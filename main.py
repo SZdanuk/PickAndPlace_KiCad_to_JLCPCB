@@ -29,50 +29,46 @@ Side = []
 
 
 
-for designator in DesignatorsTable:
-    if FileTextLines[lineNumber][i] == designator:
-        break
 
 while lineNumber < (len(FileTextLines)):
 
     i = 0
     columnIterator = 0
 
-    while columnIterator < len(PPtable):
+    #checking if 1st letter contains designator type
+    for designator in DesignatorsTable:
+        if FileTextLines[lineNumber][0] == designator:
+            while columnIterator < len(PPtable):
 
-        while i < len(FileTextLines[lineNumber]):
-            if FileTextLines[lineNumber][i] != ' ':
-                wordBegin = i
-                break
-            i = i + 1
+                while i < len(FileTextLines[lineNumber]):
+                    if FileTextLines[lineNumber][i] != ' ':
+                        wordBegin = i
+                        break
+                    i = i + 1
 
-        while i < len(FileTextLines[lineNumber]):
-            wordEnd = i
-            if FileTextLines[lineNumber][i] == ' ':
-                break
-            i = i + 1
+                while i < len(FileTextLines[lineNumber]):
+                    wordEnd = i
+                    if FileTextLines[lineNumber][i] == ' ':
+                        break
+                    i = i + 1
 
-        if columnIterator == 0:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 1:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 2:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 3:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 4:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 5:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
-        if columnIterator == 6:
-            PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 0:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 1:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 2:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 3:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 4:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 5:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
+                if columnIterator == 6:
+                    PPOutput[lineNumber][columnIterator] = FileTextLines[lineNumber][wordBegin:wordEnd]
 
-        columnIterator += 1
+                columnIterator += 1
+            break
     lineNumber += 1
-print(Designator)
-print(Value)
-print(Package)
-print(Position_X)
-print(Position_Y)
-print(Rotation)
-print(Side)
+
+print(PPOutput)
