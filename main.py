@@ -22,13 +22,6 @@ DesignatorsTable = ['C', 'R', 'D', 'U', 'L', 'Q']
 PPInputTitle = ["Ref", "Val", "Package", "PosX", "PosY", "Rot", "Side"]
 PPOutputTitle = ["Designator", "Mid X", "Mid Y", "Layer", "Rotation"]
 PPOutputTable = np.full((len(FileTextLines), len(PPInputTitle)), '#empty_cell')
-Designator = []
-Value = []
-Package = []
-Position_X = []
-Position_Y = []
-Rotation = []
-Side = []
 
 while lineNumber < (len(FileTextLines)):
 
@@ -73,7 +66,8 @@ for i, val in enumerate(PPOutputTitle):
     worksheet.write(0, i, val)
 
 # Write designators, PosX, PosY, Layer, Rotation:
-for i, col in enumerate([0, 3, 4, 6, 5]):
+
+for i, col in enumerate([PPInputTitle.index("Ref"), PPInputTitle.index("PosX"), PPInputTitle.index("PosY"), PPInputTitle.index("Side"), PPInputTitle.index("Rot")]):
     row = 1
     for d in range(len(FileTextLines)):
         if '#empty_cell' not in PPOutputTable[d][col]:
